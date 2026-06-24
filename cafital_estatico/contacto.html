@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafital - Contacto</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-container">
+        <h2 class="logo">Cafital</h2>
+
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="section">
+      <div class="container">
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">
+          ¿Tienes alguna <span class="accent">pregunta</span>?
+        </h2>
+        <div class="contact-layout">
+          <div class="contact-form-card">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Tu nombre completo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="tu@correo.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="5"
+                  placeholder="Cuéntanos en qué podemos ayudarte"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
+          <div class="contact-info-card">
+            <h3>Información de contacto</h3>
+            <div class="contact-info-item">
+              <span>📍</span>
+              <div>
+                <strong>Dirección</strong>
+                <p>Av. Siempre Viva 1234, Santiago</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <span>📞</span>
+              <div>
+                <strong>Teléfono</strong>
+                <p>+56 9 1234 5678</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <span>✉️</span>
+              <div>
+                <strong>Email</strong>
+                <p>hola@cafital.com</p>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#">IG</a> <a href="#">FB</a> <a href="#">TT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

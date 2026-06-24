@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafital - Panel Admin</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <h2>☕ Cafital</h2>
+        <p>Panel admin</p>
+      </div>
+
+      <nav class="admin-nav">
+        <ul>
+          <li><a href="admin.html" class="active">Productos</a></li>
+          <li><a href="#">Pedidos</a></li>
+          <li><a href="#">Mensajes de contacto</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h1>Productos</h1>
+          <p>Gestiona el catálogo de la tienda</p>
+        </div>
+
+        <a href="#" class="btn"> + Agregar nuevo producto </a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <p>Productos activos</p>
+          <p class="value">8</p>
+        </div>
+
+        <div class="stat-card">
+          <p>Pedidos del mes</p>
+          <p class="value">142</p>
+        </div>
+
+        <div class="stat-card">
+          <p>Mensajes sin leer</p>
+          <p class="value">7</p>
+        </div>
+      </div>
+
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Formato</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><div class="product-thumb"></div></td>
+              <td class="product-name">
+                <strong>Espresso Intenso</strong>
+                <span>Cápsula compatible · int. 11</span>
+              </td>
+              <td>Cápsulas</td>
+              <td>$5.990</td>
+              <td>120</td>
+              <td>
+                <div class="action-icons">
+                  <a href="#" class="icon-btn edit">✏️</a>
+                  <a href="#" class="icon-btn delete">🗑️</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><div class="product-thumb"></div></td>
+              <td class="product-name">
+                <strong>Decaf Suave</strong>
+                <span>Cápsula · descafeinado</span>
+              </td>
+              <td>Cápsulas</td>
+              <td>$5.990</td>
+              <td>80</td>
+              <td>
+                <div class="action-icons">
+                  <a href="#" class="icon-btn edit">✏️</a>
+                  <a href="#" class="icon-btn delete">🗑️</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><div class="product-thumb"></div></td>
+              <td class="product-name">
+                <strong>Lungo Dorado</strong>
+                <span>Cápsula compatible · int. 6</span>
+              </td>
+              <td>Cápsulas</td>
+              <td>$6.490</td>
+              <td>45</td>
+              <td>
+                <div class="action-icons">
+                  <a href="#" class="icon-btn edit">✏️</a>
+                  <a href="#" class="icon-btn delete">🗑️</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><div class="product-thumb"></div></td>
+              <td class="product-name">
+                <strong>Mezcla de la Casa</strong>
+                <span>Grano entero · 250 g</span>
+              </td>
+              <td>Bolsitas</td>
+              <td>$8.990</td>
+              <td>60</td>
+              <td>
+                <div class="action-icons">
+                  <a href="#" class="icon-btn edit">✏️</a>
+                  <a href="#" class="icon-btn delete">🗑️</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><div class="product-thumb"></div></td>
+              <td class="product-name">
+                <strong>Soluble Premium</strong>
+                <span>Tarro de vidrio · 200 g</span>
+              </td>
+              <td>Tarros</td>
+              <td>$7.990</td>
+              <td>35</td>
+              <td>
+                <div class="action-icons">
+                  <a href="#" class="icon-btn edit">✏️</a>
+                  <a href="#" class="icon-btn delete">🗑️</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
