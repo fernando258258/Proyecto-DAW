@@ -1,73 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+/* ============================================
+   VARIABLES GLOBALES
+   ============================================ */
+:root {
+  --color-cafe:#3d2b1f;
+  --color-piel: #f2e8dc;
+  --color-rojo: #e94f4f;
+  --font-primary: 'Fraunces', serif;
+  --font-secondary: 'Open Sans', sans-serif;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #333;
+  font-family: var(--font-secondary);
+  background: var(--color-piel);
+  color: var(--color-cafe);
   line-height: 1.6;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ============================================
+   BLOCK: .container
+   Contenedor principal que centra y limita
+   el ancho máximo del contenido a 1200px
+   ============================================ */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
 
+/* ============================================
+   BLOCK: .navbar
+   Barra de navegación superior del sitio
+   ============================================ */
 .navbar {
-  background: white;
+  background: var(--color-piel);
   padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px #e3d3bd;
 }
 
+/* ELEMENT: .nav-container
+   Contenedor flex que distribuye logo y menú */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  color: #8b5e3c;
+/* ELEMENT: .brand
+   Logo del sitio con fondo de imagen e imagen
+   de fondo. Al hacer clic lleva al inicio */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-cafe);
+  text-decoration: none;
+  min-height: 44px;
+  padding-left: 42px;
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782320368/logo-1_xhoikl.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 44px 44px;
 }
 
+/* ELEMENT: .brand-text
+   Texto "Cafital" junto al logo del brand */
+.brand-text {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: inherit;
+}
+
+/* ELEMENT: .nav-menu
+   Menú de navegación horizontal con enlaces */
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
+/* ELEMENT: .nav-menu a
+   Enlaces del menú navegable */
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-cafe);
   font-weight: bold;
 }
 
 .nav-menu a:hover {
-  color: #8b5e3c;
+  color: var(--color-cafe);
 }
 
+/* ============================================
+   BLOCK: .section
+   Sección genérica con padding vertical
+   ============================================ */
 .section {
-  padding: 60px 0;
+  padding: 10px 0;
 }
 
+/* MODIFIER: .section-intro-band
+   Sección con fondo café para introducción
+   de características principales */
+.section-intro-band {
+  background: var(--color-cafe);
+  padding: 45px 0;
+}
+
+/* ELEMENT: .section-intro
+   Contenedor grid para mostrar 3 columnas
+   de características del negocio */
+.section-intro {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* ELEMENT: .intro-item
+   Cada característica individual de la banda
+   de introducción */
+.intro-item {
+  flex: 1;
+  padding: 0 24px;
+}
+
+.intro-item:not(:first-child) {
+  border-left: 1px solid rgba(242, 232, 220, 0.25);
+}
+
+.intro-item h3 {
+  margin-bottom: 0;
+  color: var(--color-piel);
+}
+    
+.intro-item p {
+  color: var(--color-piel);
+}
+
+/* ============================================
+   BLOCK: .section-tag
+   Etiqueta decorativa sobre títulos de sección
+   en color rojo como acento
+   ============================================ */
 .section-tag {
   display: block;
-  color: #8b5e3c;
+  color: var(--color-rojo);
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* ============================================
+   BLOCK: .section-title
+   Título principal de cada sección
+   ============================================ */
 .section-title {
   margin-bottom: 30px;
+  color: var(--color-cafe);
 }
 
+.section-title .accent {
+  color: var(--color-rojo);
+}
+
+/* MODIFIER: .accent
+   Modifica color de texto a rojo para destacar */
 .accent {
-  color: #8b5e3c;
+  color: var(--color-rojo);
 }
 
+/* ============================================
+   BLOCK: .btn
+   Botón genérico base para toda la web
+   ============================================ */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -75,15 +202,47 @@ body {
   border-radius: 5px;
 }
 
+/* MODIFIER: .btn-primary
+   Botón rojo principal con efecto hover invertido */
 .btn-primary {
-  background: #8b5e3c;
-  color: white;
+  background: var(--color-rojo);
+  color: var(--color-piel);
+  border: 2px solid var(--color-rojo);
+  border-radius: 35px;
+  box-shadow: 0 4px 8px rgba(210, 49, 52, 0.711);
 }
 
 .btn-primary:hover {
-  background: #6f4a2f;
+  background: var(--color-piel);
+  color: var(--color-rojo);
 }
 
+/* MODIFIER: .btn-small
+   Botón reducido para usar en tarjetas */
+.btn-small {
+  padding: 8px 12px;
+}
+
+@media (max-width: 768px) {
+  .section-intro {
+    flex-direction: column;
+  }
+
+  .intro-item {
+    padding: 18px 0;
+  }
+
+  .intro-item:not(:first-child) {
+    border-left: 0;
+    border-top: 1px solid rgba(242, 232, 220, 0.25);
+  }
+}
+
+/* ============================================
+   BLOCK: .hero
+   Sección principal con imagen y contenido
+   lado a lado (Hero section)
+   ============================================ */
 .hero {
   display: flex;
   align-items: center;
@@ -91,91 +250,218 @@ body {
   padding: 60px 0;
 }
 
+/* ELEMENT: .hero-content
+   Contenido de texto del héroe (izquierda) */
 .hero-content {
   flex: 1;
 }
 
 .hero-content h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: var(--color-cafe);
+  letter-spacing: -0.02em;
   margin: 15px 0;
 }
 
+/* ELEMENT: .hero-image
+   Contenedor de imagen del héroe (derecha) */
 .hero-image {
   flex: 1;
 }
 
+/* ELEMENT: .hero-image-placeholder
+   Imagen de fondo para la sección héroe */
 .hero-image-placeholder {
   height: 300px;
-  background: #ddd;
+  background: var(--color-cafe);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: var(--color-piel);
+  border-radius: 25px;
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308175/index-principal_ggvash.jpg');
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
 }
 
+/* ============================================
+   BLOCK: .category-grid
+   Grilla que muestra 3 categorías de productos
+   (Cápsulas, Bolsitas, Tarros)
+   ============================================ */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
 
+/* ELEMENT: .category-card
+   Tarjeta individual de categoría con imagen
+   y contenido, con efecto hover */
 .category-card {
-  background: white;
-  padding: 30px;
-  text-decoration: none;
-  color: black;
-  border-radius: 10px;
-  text-align: center;
-  transition: 0.3s;
+  background: var(--color-piel);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(61, 43, 31, 0.08);
+  border: 1px solid rgba(61, 43, 31, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(61, 43, 31, 0.12);
 }
 
+/* ELEMENT: .card-image
+   Área de imagen de la tarjeta de categoría */
+.card-image {
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+/* MODIFIER: .card-image-capsulas
+   Imagen de fondo para la categoría cápsulas */
+.card-image-capsulas {
+  background: linear-gradient(135deg, #553223, #7a4f37);
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308386/index-capsulas_biqowj.jpg');
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}
+
+/* MODIFIER: .card-image-bolsitas
+   Imagen de fondo para la categoría bolsitas */
+.card-image-bolsitas {
+  background: linear-gradient(135deg, #7a5636, #9a6d49);
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782318168/index-bolsas_rhn8wo.jpg');
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}
+
+/* MODIFIER: .card-image-tarros
+   Imagen de fondo para la categoría tarros */
+.card-image-tarros {
+  background: linear-gradient(135deg, #c89d6f, #d7b48a);
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782319280/index-tarros_op67tw.png');
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}
+
+/* ELEMENT: .card-image-label
+   Etiqueta descriptiva sobre la imagen */
+.card-image-label {
+  display: inline-block;
+  background: rgba(61, 43, 31, 0.6);
+  color: var(--color-piel);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* ELEMENT: .card-content
+   Área de contenido texto de la tarjeta */
+.card-content {
+  padding: 28px 30px 32px;
+}
+
+.card-content h3 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  color: #6f5a47;
+  margin-bottom: 22px;
+}
+
+/* ELEMENT: .card-link
+   Enlace de exploración en la tarjeta */
+.card-link {
+  color: var(--color-rojo);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ============================================
+   BLOCK: .filters
+   Contenedor de botones filtro en página
+   de productos
+   ============================================ */
 .filters {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
 }
 
+/* ELEMENT: .filter-btn
+   Botón individual para filtrar productos
+   por categoría (Cápsulas, Bolsitas, Tarros) */
 .filter-btn {
   text-decoration: none;
-  background: #ddd;
+  background: var(--color-piel);
   padding: 10px 15px;
   border-radius: 5px;
-  color: black;
+  color: var(--color-cafe);
 }
 
+/* ============================================
+   BLOCK: .format-heading
+   Título de sección para cada formato
+   de producto (Cápsulas, Bolsitas, Tarros)
+   ============================================ */
 .format-heading {
   margin: 40px 0 20px;
 }
 
+/* ============================================
+   BLOCK: .product-grid
+   Grilla que muestra hasta 3 productos
+   en el catálogo
+   ============================================ */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
+/* ELEMENT: .product-card
+   Tarjeta individual de producto */
 .product-card {
-  background: white;
+  background: var(--color-piel);
   border-radius: 10px;
   overflow: hidden;
 }
 
+/* ELEMENT: .product-image
+   Área de imagen del producto */
 .product-image {
   height: 180px;
   background: #d9d9d9;
 }
 
+/* ELEMENT: .product-info
+   Información de texto del producto */
 .product-info {
   padding: 15px;
 }
 
+/* ELEMENT: .product-format-tag
+   Etiqueta que indica tipo de formato */
 .product-format-tag {
-  color: #8b5e3c;
+  color: var(--color-cafe);
   font-size: 14px;
 }
 
+/* ELEMENT: .product-footer
+   Pie con precio y botón de agregar */
 .product-footer {
   display: flex;
   justify-content: space-between;
@@ -183,27 +469,36 @@ body {
   margin-top: 15px;
 }
 
+/* ELEMENT: .product-price
+   Precio del producto */
 .product-price {
   font-weight: bold;
 }
 
-.btn-small {
-  padding: 8px 12px;
-}
-
+/* ============================================
+   BLOCK: .contact-layout
+   Contenedor de formulario y info de contacto
+   lado a lado
+   ============================================ */
 .contact-layout {
   display: flex;
   gap: 30px;
 }
 
+/* ELEMENT: .contact-form-card
+   Tarjeta con formulario de contacto */
 .contact-form-card,
+/* ELEMENT: .contact-info-card
+   Tarjeta con información de contacto */
 .contact-info-card {
   flex: 1;
-  background: white;
+  background: var(--color-piel);
   padding: 20px;
   border-radius: 10px;
 }
 
+/* ELEMENT: .form-group
+   Grupo de campo de formulario */
 .form-group {
   margin-bottom: 15px;
 }
@@ -219,12 +514,16 @@ body {
   padding: 10px;
 }
 
+/* ELEMENT: .contact-info-item
+   Cada línea de información de contacto */
 .contact-info-item {
   display: flex;
   gap: 10px;
   margin: 15px 0;
 }
 
+/* ELEMENT: .social-links
+   Contenedor de enlaces a redes sociales */
 .social-links {
   margin-top: 20px;
 }
@@ -234,51 +533,77 @@ body {
   margin-right: 10px;
 }
 
+/* ============================================
+   BLOCK: .about-hero
+   Sección de la página sobre nosotros
+   con imagen y texto lado a lado
+   ============================================ */
 .about-hero {
   display: flex;
   gap: 30px;
   padding: 60px 0;
 }
 
+/* ELEMENT: .about-image
+   Área de imagen en página sobre nosotros */
 .about-image {
   flex: 1;
   height: 350px;
-  background: #d9d9d9;
+  background: var(--color-piel);
 }
 
+/* ELEMENT: .about-text
+   Contenido de texto en página sobre nosotros */
 .about-text {
   flex: 1;
 }
 
+/* ELEMENT: .about-title
+   Título principal en página sobre nosotros */
 .about-title {
   font-size: 2rem;
   margin: 15px 0;
 }
 
+/* ============================================
+   BLOCK: .values-grid
+   Grilla que muestra 3 valores de la empresa
+   (Origen, Sostenibilidad, Calidad)
+   ============================================ */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
+/* ELEMENT: .value-card
+   Tarjeta individual que muestra un valor */
 .value-card {
-  background: white;
+  background: var(--color-piel);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
 }
 
+/* ELEMENT: .value-icon
+   Ícono emoji que representa un valor */
 .value-icon {
   font-size: 40px;
   margin-bottom: 10px;
 }
 
+/* ============================================
+   BLOCK: .site-footer
+   Pie de página con navegación y contacto
+   ============================================ */
 .site-footer {
-  background: #222;
-  color: white;
+  background: var(--color-cafe);
+  color: var(--color-piel);
   padding: 40px 0;
 }
 
+/* ELEMENT: .footer-grid
+   Grilla de 4 columnas con links y datos */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -290,27 +615,52 @@ body {
 }
 
 .footer-grid a {
-  color: white;
+  color: var(--color-piel);
   text-decoration: none;
 }
 
+/* ELEMENT: .footer-logo
+   Logo del footer con versión en color rojo
+   Al hacer clic lleva al inicio */
 .footer-logo {
+  display: inline-flex;
+  align-items: center;
   font-size: 22px;
   font-weight: bold;
+  font-family: var(--font-primary);
+  color: var(--color-piel);
+  text-decoration: none;
+  min-height: 52px;
+  padding-left: 50px;
+  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782320439/logo-2_yn65ie.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 52px 52px;
 }
 
+/* ELEMENT: .footer-bottom
+   Línea de copyright al pie del footer */
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
 }
 
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   Ajustes para pantallas m\u00e1s peque\u00f1as
+   (m\u00e1x. 768px: tablets y m\u00f3viles)
+   ============================================ */
 @media (max-width: 768px) {
+  /* Cambiar layouts flex de lado a lado
+     a vertical para mejor legibilidad */
   .hero,
   .about-hero,
   .contact-layout {
     flex-direction: column;
   }
 
+  /* Cambiar grillas de m\u00faltiples columnas
+     a una sola columna */
   .category-grid,
   .product-grid,
   .values-grid,
@@ -318,6 +668,7 @@ body {
     grid-template-columns: 1fr;
   }
 
+  /* Apilar navegaci\u00f3n verticalmente */
   .nav-container {
     flex-direction: column;
     gap: 15px;

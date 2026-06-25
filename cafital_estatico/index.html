@@ -1,31 +1,35 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafital - Inicio</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-container">
-        <h2 class="logo">Cafital</h2>
 
-        <nav>
-          <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafital - Inicio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Ir al inicio de Cafital">
+        <span class="brand-text">Cafital</span>
+      </a>
 
-    <main class="container">
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
       <section class="hero">
         <div class="hero-content">
-          <span class="section-tag">Eleva tu experiencia de café</span>
+          <span class="section-tag">TOSTADO ARTESANAL</span>
 
           <h1>Descubre el mejor café, en el formato que prefieras</h1>
 
@@ -34,87 +38,132 @@
             cada momento de tu día.
           </p>
 
-          <a href="productos.html" class="btn btn-primary"> Ver productos </a>
+          <a href="#section-formatos" class="btn btn-primary"> Ver productos </a>
         </div>
 
         <div class="hero-image">
-          <div class="hero-image-placeholder">Imagen de café</div>
+          <div class="hero-image-placeholder"></div>
         </div>
       </section>
+    </div>
 
-      <section class="section">
-        <span class="section-tag">Nuestros formatos</span>
+    <section class="section section-intro-band">
+      <div class="container">
+        <div class="section-intro">
+          <div class="intro-item">
+            <h3>Origen seleccionado</h3>
+            <p>Lotes de fincas con trazabilidad.</p>
+          </div>
+
+          <div class="intro-item">
+            <h3>Tueste fresco</h3>
+            <p>Tostamos cada semana en lotes pequeños.</p>
+          </div>
+
+          <div class="intro-item">
+            <h3>Envío a todo el país</h3>
+            <p>Despacho en 24-48 h.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="section" id="section-formatos">
+        <span class="section-tag">ELIGE TU FORMATO</span>
 
         <h2 class="section-title">
-          Pensado en cada paso del
-          <span class="accent">viaje del café</span>
+          Café para cada ritual
         </h2>
 
         <div class="category-grid">
-          <a href="productos.html" class="category-card">
-            <h3>Cápsulas</h3>
-            <p>Compatibles y listas en segundos.</p>
-          </a>
+          <article class="category-card">
+            <div class="card-image card-image-capsulas">
+              <span class="card-image-label">foto · cápsulas</span>
+            </div>
 
-          <a href="productos.html" class="category-card">
-            <h3>Bolsitas de grano</h3>
-            <p>Grano entero o molido recién tostado.</p>
-          </a>
+            <div class="card-content">
+              <h3>Cápsulas</h3>
+              <p>Compatibles, listas en segundos. Intensidades del 5 al 12.</p>
+              <a href="productos.html" class="card-link">Explorar →</a>
+            </div>
+          </article>
 
-          <a href="productos.html" class="category-card">
-            <h3>Tarros</h3>
-            <p>Café soluble premium para cualquier momento.</p>
-          </a>
+          <article class="category-card">
+            <div class="card-image card-image-bolsitas">
+              <span class="card-image-label">foto · grano / molido</span>
+            </div>
+
+            <div class="card-content">
+              <h3>Bolsitas</h3>
+              <p>Grano entero o molido, en bolsas de 250 g recién tostadas.</p>
+              <a href="productos.html" class="card-link">Explorar →</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="card-image card-image-tarros">
+              <span class="card-image-label">foto · tarro</span>
+            </div>
+
+            <div class="card-content">
+              <h3>Tarros</h3>
+              <p>Café soluble premium para tener siempre a mano.</p>
+              <a href="productos.html" class="card-link">Explorar →</a>
+            </div>
+          </article>
         </div>
       </section>
-    </main>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <p class="footer-logo">Cafital</p>
-            <p>
-              Café de origen, tostado con cuidado, listo para cada formato y
-              cada momento del día.
-            </p>
-          </div>
-
-          <div>
-            <h4>Navegación</h4>
-
-            <ul>
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-              <li><a href="productos.html">Productos</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>Formatos</h4>
-
-            <ul>
-              <li><a href="productos.html">Cápsulas</a></li>
-              <li><a href="productos.html">Bolsitas</a></li>
-              <li><a href="productos.html">Tarros</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>Contacto</h4>
-
-            <ul>
-              <li>hola@cafital.com</li>
-              <li>+591 76326346</li>
-            </ul>
-          </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-logo" href="index.html" aria-label="Ir al inicio de Cafital">Cafital</a>
+          <p>
+            Café de origen, tostado con cuidado, listo para cada formato y
+            cada momento del día.
+          </p>
         </div>
 
-        <div class="footer-bottom">
-          © 2026 Cafital. Todos los derechos reservados. Proyecto académico.
+        <div>
+          <h4>Navegación</h4>
+
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Formatos</h4>
+
+          <ul>
+            <li><a href="productos.html">Cápsulas</a></li>
+            <li><a href="productos.html">Bolsitas</a></li>
+            <li><a href="productos.html">Tarros</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+
+          <ul>
+            <li>cafital@gmail.com</li>
+            <li>+591 780 49 217</li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </body>
+
+      <div class="footer-bottom">
+        © 2026 Cafital. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
