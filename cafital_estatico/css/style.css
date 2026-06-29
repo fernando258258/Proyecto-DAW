@@ -5,12 +5,13 @@
    VARIABLES GLOBALES
    ============================================ */
 :root {
-  --color-cafe:#3d2b1f;
+  --color-cafe: #3d2b1f;
   --color-piel: #f2e8dc;
   --color-rojo: #e94f4f;
   --font-primary: 'Fraunces', serif;
   --font-secondary: 'Open Sans', sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -155,7 +156,7 @@ textarea {
   margin-bottom: 0;
   color: var(--color-piel);
 }
-    
+
 .intro-item p {
   color: var(--color-piel);
 }
@@ -170,6 +171,8 @@ textarea {
   color: var(--color-rojo);
   font-weight: bold;
   margin-bottom: 10px;
+  letter-spacing: 0.16em;
+  ;
 }
 
 /* ============================================
@@ -185,10 +188,18 @@ textarea {
   color: var(--color-rojo);
 }
 
+.section-title .accent2 {
+  color: var(--color-piel);
+}
+
 /* MODIFIER: .accent
    Modifica color de texto a rojo para destacar */
 .accent {
   color: var(--color-rojo);
+}
+
+.accent2 {
+  color: var(--color-piel);
 }
 
 /* ============================================
@@ -223,20 +234,7 @@ textarea {
   padding: 8px 12px;
 }
 
-@media (max-width: 768px) {
-  .section-intro {
-    flex-direction: column;
-  }
 
-  .intro-item {
-    padding: 18px 0;
-  }
-
-  .intro-item:not(:first-child) {
-    border-left: 0;
-    border-top: 1px solid rgba(242, 232, 220, 0.25);
-  }
-}
 
 /* ============================================
    BLOCK: .hero
@@ -274,18 +272,11 @@ textarea {
 /* ELEMENT: .hero-image-placeholder
    Imagen de fondo para la sección héroe */
 .hero-image-placeholder {
+  width: 100%;
   height: 300px;
-  background: var(--color-cafe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--color-piel);
   border-radius: 25px;
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308175/index-principal_ggvash.jpg');
-  background-size: cover;
   object-fit: cover;
-  background-position: center;
+  display: block;
 }
 
 /* ============================================
@@ -295,7 +286,7 @@ textarea {
    ============================================ */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 30px;
 }
 
@@ -320,44 +311,24 @@ textarea {
    Área de imagen de la tarjeta de categoría */
 .card-image {
   height: 300px;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-cafe);
 }
 
-/* MODIFIER: .card-image-capsulas
-   Imagen de fondo para la categoría cápsulas */
-.card-image-capsulas {
-  background: linear-gradient(135deg, #553223, #7a4f37);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308386/index-capsulas_biqowj.jpg');
-  background-size: cover;
+.card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background-position: center;
-}
-
-/* MODIFIER: .card-image-bolsitas
-   Imagen de fondo para la categoría bolsitas */
-.card-image-bolsitas {
-  background: linear-gradient(135deg, #7a5636, #9a6d49);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782318168/index-bolsas_rhn8wo.jpg');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
-}
-
-/* MODIFIER: .card-image-tarros
-   Imagen de fondo para la categoría tarros */
-.card-image-tarros {
-  background: linear-gradient(135deg, #c89d6f, #d7b48a);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782319280/index-tarros_op67tw.png');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
+  display: block;
 }
 
 /* ELEMENT: .card-image-label
    Etiqueta descriptiva sobre la imagen */
 .card-image-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
   display: inline-block;
   background: rgba(61, 43, 31, 0.6);
   color: var(--color-piel);
@@ -399,6 +370,7 @@ textarea {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
 /* ELEMENT: .filter-btn
@@ -428,7 +400,7 @@ textarea {
    ============================================ */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -436,16 +408,27 @@ textarea {
    Tarjeta individual de producto */
 .product-card {
   background: var(--color-piel);
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
+  /* border: 2px solid #ead9c2; */
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 12px 40px;
 }
 
 /* ELEMENT: .product-image
    Área de imagen del producto */
 .product-image {
+  width: 100%;
   height: 180px;
-  background: #d9d9d9;
+  object-fit: cover;
+  display: block;
 }
+
 
 /* ELEMENT: .product-info
    Información de texto del producto */
@@ -485,6 +468,13 @@ textarea {
   gap: 30px;
 }
 
+.contact-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 /* ELEMENT: .contact-form-card
    Tarjeta con formulario de contacto */
 .contact-form-card,
@@ -492,26 +482,99 @@ textarea {
    Tarjeta con información de contacto */
 .contact-info-card {
   flex: 1;
-  background: var(--color-piel);
+  background: #fbf5ec;
   padding: 20px;
   border-radius: 10px;
+  border: #ead9c2 solid 1px;
+}
+
+.contact-info-card {
+  background: #463529;
+  color: var(--color-piel);
+  padding: 32px;
+  border-radius: 18px;
+}
+
+.contact-info-card h3 {
+  margin-bottom: 24px;
+}
+
+.contact-info-card .contact-info-item {
+  margin: 0 0 22px;
+}
+
+.contact-info-card .contact-info-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact-info-card strong {
+  display: block;
+  color: var(--color-rojo);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+
+.contact-info-card p {
+  color: rgba(242, 232, 220, 0.88);
+}
+
+.contact-info-card span {
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.contact-social-card {
+  background: #fbf5ec;
+  padding: 28px 32px;
+  border-radius: 18px;
+  border: 1px solid #ead9c2;
+}
+
+.contact-social-card h4 {
+  margin-bottom: 14px;
+  color: var(--color-cafe);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1.1rem;
+}
+
+.contact-social {
+  margin-top: 0;
+}
+
+.contact-info-card .footer-social a,
+.contact-social-card .footer-social a {
+  background: #4a3728;
+  border-color: #4a3728;
+  color: var(--color-piel);
+}
+
+.contact-info-card .footer-social a:hover,
+.contact-social-card .footer-social a:hover {
+  background: #5a4330;
 }
 
 /* ELEMENT: .form-group
    Grupo de campo de formulario */
 .form-group {
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 5px;
+
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 10px;
+  border-radius: 10px;
 }
 
 /* ELEMENT: .contact-info-item
@@ -520,18 +583,10 @@ textarea {
   display: flex;
   gap: 10px;
   margin: 15px 0;
+
 }
 
-/* ELEMENT: .social-links
-   Contenedor de enlaces a redes sociales */
-.social-links {
-  margin-top: 20px;
-}
 
-.social-links a {
-  text-decoration: none;
-  margin-right: 10px;
-}
 
 /* ============================================
    BLOCK: .about-hero
@@ -549,7 +604,9 @@ textarea {
 .about-image {
   flex: 1;
   height: 350px;
-  background: var(--color-piel);
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
 }
 
 /* ELEMENT: .about-text
@@ -565,6 +622,12 @@ textarea {
   margin: 15px 0;
 }
 
+.about-values {
+  margin-top: 40px;
+  background: var(--color-cafe);
+  padding: 40px 20px;
+}
+
 /* ============================================
    BLOCK: .values-grid
    Grilla que muestra 3 valores de la empresa
@@ -572,17 +635,19 @@ textarea {
    ============================================ */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 /* ELEMENT: .value-card
    Tarjeta individual que muestra un valor */
 .value-card {
-  background: var(--color-piel);
+  background: #463529;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  color: var(--color-piel);
+  border: #5f4f43 solid 2px;
 }
 
 /* ELEMENT: .value-icon
@@ -599,24 +664,47 @@ textarea {
 .site-footer {
   background: var(--color-cafe);
   color: var(--color-piel);
-  padding: 40px 0;
+  padding: 64px 0 28px;
 }
 
 /* ELEMENT: .footer-grid
-   Grilla de 4 columnas con links y datos */
+   Grilla de 4 columnas con marca, navegación,
+   contacto y redes */
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(242, 232, 220, 0.18);
+}
+
+.footer-grid h4 {
+  color: var(--color-rojo);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+}
+
+.footer-grid p,
+.footer-grid li {
+  color: rgba(242, 232, 220, 0.82);
 }
 
 .footer-grid ul {
   list-style: none;
+  display: grid;
+  gap: 12px;
 }
 
 .footer-grid a {
   color: var(--color-piel);
   text-decoration: none;
+}
+
+.footer-grid a:hover {
+  color: #ffffff;
 }
 
 /* ELEMENT: .footer-logo
@@ -638,37 +726,111 @@ textarea {
   background-size: 52px 52px;
 }
 
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(242, 232, 220, 0.08);
+  color: var(--color-piel);
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
 /* ELEMENT: .footer-bottom
-   Línea de copyright al pie del footer */
+   Franja legal con copyright y enlaces secundarios */
 .footer-bottom {
-  text-align: center;
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  font-size: 0.92rem;
+  color: rgba(242, 232, 220, 0.72);
+}
+
+.footer-bottom a {
+  color: rgba(242, 232, 220, 0.72);
+}
+
+.footer-bottom a:hover {
+  color: var(--color-piel);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 /* ============================================
    MEDIA QUERIES - RESPONSIVE DESIGN
-   Ajustes para pantallas m\u00e1s peque\u00f1as
-   (m\u00e1x. 768px: tablets y m\u00f3viles)
+   Ajustes para pantallas más pequeñas
    ============================================ */
+
+/* TABLETS (hasta 992px) */
+@media (max-width: 992px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* TABLETS Y MÓVILES (hasta 768px) */
 @media (max-width: 768px) {
-  /* Cambiar layouts flex de lado a lado
-     a vertical para mejor legibilidad */
+
+  /* Cambiar layouts de lado a lado (flex row) a vertical (flex column) */
   .hero,
   .about-hero,
   .contact-layout {
     flex-direction: column;
+    gap: 20px;
   }
 
-  /* Cambiar grillas de m\u00faltiples columnas
-     a una sola columna */
-  .category-grid,
-  .product-grid,
-  .values-grid,
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .hero-image-placeholder {
+    height: 260px;
   }
 
-  /* Apilar navegaci\u00f3n verticalmente */
+  .about-image {
+    height: 280px;
+  }
+
+  .intro-item {
+    padding: 18px 0;
+  }
+
+  .section-intro {
+    flex-direction: column;
+  }
+
+  .intro-item:not(:first-child) {
+    border-left: 0;
+    border-top: 1px solid rgba(242, 232, 220, 0.25);
+  }
+}
+
+/* MÓVILES (hasta 576px) */
+@media (max-width: 576px) {
+
+  /* Apilar navegación verticalmente */
   .nav-container {
     flex-direction: column;
     gap: 15px;
@@ -677,5 +839,23 @@ textarea {
   .nav-menu {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
+  }
+
+  /* Footer simplificado en pantallas muy pequeñas */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-bottom-links {
+    justify-content: flex-start;
+  }
+
+  /* Carrito ocupa pantalla completa en móvil */
+  .cart-drawer {
+    width: 100%;
+    right: -100%;
   }
 }
