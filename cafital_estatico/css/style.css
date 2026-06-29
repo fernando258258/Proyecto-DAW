@@ -5,12 +5,13 @@
    VARIABLES GLOBALES
    ============================================ */
 :root {
-  --color-cafe:#3d2b1f;
+  --color-cafe: #3d2b1f;
   --color-piel: #f2e8dc;
   --color-rojo: #e94f4f;
   --font-primary: 'Fraunces', serif;
   --font-secondary: 'Open Sans', sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -155,7 +156,7 @@ textarea {
   margin-bottom: 0;
   color: var(--color-piel);
 }
-    
+
 .intro-item p {
   color: var(--color-piel);
 }
@@ -186,6 +187,7 @@ textarea {
 .section-title .accent {
   color: var(--color-rojo);
 }
+
 .section-title .accent2 {
   color: var(--color-piel);
 }
@@ -195,6 +197,7 @@ textarea {
 .accent {
   color: var(--color-rojo);
 }
+
 .accent2 {
   color: var(--color-piel);
 }
@@ -231,20 +234,7 @@ textarea {
   padding: 8px 12px;
 }
 
-@media (max-width: 768px) {
-  .section-intro {
-    flex-direction: column;
-  }
 
-  .intro-item {
-    padding: 18px 0;
-  }
-
-  .intro-item:not(:first-child) {
-    border-left: 0;
-    border-top: 1px solid rgba(242, 232, 220, 0.25);
-  }
-}
 
 /* ============================================
    BLOCK: .hero
@@ -282,18 +272,11 @@ textarea {
 /* ELEMENT: .hero-image-placeholder
    Imagen de fondo para la sección héroe */
 .hero-image-placeholder {
+  width: 100%;
   height: 300px;
-  background: var(--color-cafe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--color-piel);
   border-radius: 25px;
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308175/index-principal_ggvash.jpg');
-  background-size: cover;
   object-fit: cover;
-  background-position: center;
+  display: block;
 }
 
 /* ============================================
@@ -303,7 +286,7 @@ textarea {
    ============================================ */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 30px;
 }
 
@@ -328,44 +311,24 @@ textarea {
    Área de imagen de la tarjeta de categoría */
 .card-image {
   height: 300px;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-cafe);
 }
 
-/* MODIFIER: .card-image-capsulas
-   Imagen de fondo para la categoría cápsulas */
-.card-image-capsulas {
-  background: linear-gradient(135deg, #553223, #7a4f37);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782308386/index-capsulas_biqowj.jpg');
-  background-size: cover;
+.card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background-position: center;
-}
-
-/* MODIFIER: .card-image-bolsitas
-   Imagen de fondo para la categoría bolsitas */
-.card-image-bolsitas {
-  background: linear-gradient(135deg, #7a5636, #9a6d49);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782318168/index-bolsas_rhn8wo.jpg');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
-}
-
-/* MODIFIER: .card-image-tarros
-   Imagen de fondo para la categoría tarros */
-.card-image-tarros {
-  background: linear-gradient(135deg, #c89d6f, #d7b48a);
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782319280/index-tarros_op67tw.png');
-  background-size: cover;
-  object-fit: cover;
-  background-position: center;
+  display: block;
 }
 
 /* ELEMENT: .card-image-label
    Etiqueta descriptiva sobre la imagen */
 .card-image-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
   display: inline-block;
   background: rgba(61, 43, 31, 0.6);
   color: var(--color-piel);
@@ -407,6 +370,7 @@ textarea {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
 /* ELEMENT: .filter-btn
@@ -436,7 +400,7 @@ textarea {
    ============================================ */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -444,18 +408,25 @@ textarea {
    Tarjeta individual de producto */
 .product-card {
   background: var(--color-piel);
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
+  /* border: 2px solid #ead9c2; */
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 12px 40px;
 }
 
 /* ELEMENT: .product-image
    Área de imagen del producto */
 .product-image {
+  width: 100%;
   height: 180px;
-  background: #d9d9d9;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: cover;
+  display: block;
 }
 
 
@@ -596,7 +567,7 @@ textarea {
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  
+
 }
 
 .form-group input,
@@ -615,16 +586,7 @@ textarea {
 
 }
 
-/* ELEMENT: .social-links
-   Contenedor de enlaces a redes sociales */
-.social-links {
-  margin-top: 20px;
-}
 
-.social-links a {
-  text-decoration: none;
-  margin-right: 10px;
-}
 
 /* ============================================
    BLOCK: .about-hero
@@ -642,10 +604,9 @@ textarea {
 .about-image {
   flex: 1;
   height: 350px;
-  background: var(--color-cafe);
   border-radius: 20px;
-  background-image: url('https://res.cloudinary.com/dk0my05zq/image/upload/v1782589556/sobre-nosotros_peq1nw.jpg');
-  background-size: cover;
+  object-fit: cover;
+  display: block;
 }
 
 /* ELEMENT: .about-text
@@ -674,7 +635,7 @@ textarea {
    ============================================ */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -686,7 +647,7 @@ textarea {
   border-radius: 10px;
   text-align: center;
   color: var(--color-piel);
-  border:#5f4f43 solid 2px;
+  border: #5f4f43 solid 2px;
 }
 
 /* ELEMENT: .value-icon
@@ -819,28 +780,57 @@ textarea {
 
 /* ============================================
    MEDIA QUERIES - RESPONSIVE DESIGN
-   Ajustes para pantallas m\u00e1s peque\u00f1as
-   (m\u00e1x. 768px: tablets y m\u00f3viles)
+   Ajustes para pantallas más pequeñas
    ============================================ */
+
+/* TABLETS (hasta 992px) */
+@media (max-width: 992px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* TABLETS Y MÓVILES (hasta 768px) */
 @media (max-width: 768px) {
-  /* Cambiar layouts flex de lado a lado
-     a vertical para mejor legibilidad */
+
+  /* Cambiar layouts de lado a lado (flex row) a vertical (flex column) */
   .hero,
   .about-hero,
   .contact-layout {
     flex-direction: column;
+    gap: 20px;
   }
 
-  /* Cambiar grillas de m\u00faltiples columnas
-     a una sola columna */
-  .category-grid,
-  .product-grid,
-  .values-grid,
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .hero-image-placeholder {
+    height: 260px;
   }
 
-  /* Apilar navegaci\u00f3n verticalmente */
+  .about-image {
+    height: 280px;
+  }
+
+  .intro-item {
+    padding: 18px 0;
+  }
+
+  .section-intro {
+    flex-direction: column;
+  }
+
+  .intro-item:not(:first-child) {
+    border-left: 0;
+    border-top: 1px solid rgba(242, 232, 220, 0.25);
+  }
+}
+
+/* MÓVILES (hasta 576px) */
+@media (max-width: 576px) {
+
+  /* Apilar navegación verticalmente */
   .nav-container {
     flex-direction: column;
     gap: 15px;
@@ -849,19 +839,23 @@ textarea {
   .nav-menu {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
+  /* Footer simplificado en pantallas muy pequeñas */
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
   .footer-bottom-links {
     justify-content: flex-start;
+  }
+
+  /* Carrito ocupa pantalla completa en móvil */
+  .cart-drawer {
+    width: 100%;
+    right: -100%;
   }
 }

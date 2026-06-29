@@ -1,56 +1,178 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafital - Productos</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-container">
-        <a class="brand" href="index.html" aria-label="Ir al inicio de Cafital">
-          <span class="brand-text">Cafital</span>
-        </a>
 
-        <nav>
-          <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafital - Productos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a class="brand" href="index.html" aria-label="Ir al inicio de Cafital">
+        <span class="brand-text">Cafital</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <span class="section-tag">CATALOGO</span>
+
+      <h2 class="section-title">
+        Nuestros <span class="accent">productos</span>
+      </h2>
+
+      <div class="filters">
+        <a href="#capsulas" class="filter-btn">Cápsulas</a>
+        <a href="#bolsitas" class="filter-btn">Bolsitas</a>
+        <a href="#tarros" class="filter-btn">Tarros</a>
       </div>
-    </header>
-    <section class="section">
-      <div class="container">
-        <span class="section-tag">Catálogo</span>
 
-        <h2 class="section-title">
-          Nuestros <span class="accent">productos</span>
-        </h2>
+      <h3 id="capsulas" class="format-heading">Cápsulas</h3>
 
-        <div class="filters">
-          <a href="#capsulas" class="filter-btn">Cápsulas</a>
-          <a href="#bolsitas" class="filter-btn">Bolsitas</a>
-          <a href="#tarros" class="filter-btn">Tarros</a>
-        </div>
+      <div class="product-grid" id="capsulas-grid">
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782619189/prodcuto-capsula-3_dbkdzm.jpg"
+            alt="Espresso Intenso" />
+          <div class="product-info">
+            <span class="product-format-tag">Cápsulas</span>
+            <h3>Espresso Intenso</h3>
+            <p>Cápsula compatible, intensidad 11.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 60</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
 
-        <h3 id="capsulas" class="format-heading">Cápsulas</h3>
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782619179/prodcuto-capsula-2_zknw2k.jpg"
+            alt="Decaf Suave" />
+          <div class="product-info">
+            <span class="product-format-tag">Cápsulas</span>
+            <h3>Decaf Suave</h3>
+            <p>Cápsula descafeinada, intensidad 6.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 60</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
 
-        <div class="product-grid" id="capsulas-grid"></div>
-
-        <h3 id="bolsitas" class="format-heading">Bolsitas</h3>
-
-        <div class="product-grid" id="bolsitas-grid"></div>
-
-        <h3 id="tarros" class="format-heading">Tarros</h3>
-
-        <div class="product-grid" id="tarros-grid"></div>
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782619036/prodcuto-capsula-1_unqz4g.jpg"
+            alt="Lungo Dorado" />
+          <div class="product-info">
+            <span class="product-format-tag">Cápsulas</span>
+            <h3>Lungo Dorado</h3>
+            <p>Cápsula compatible, intensidad 6.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 70</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
       </div>
-    </section>
-    <footer class="site-footer">
+
+      <h3 id="bolsitas" class="format-heading">Bolsitas</h3>
+
+      <div class="product-grid" id="bolsitas-grid">
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782769739/producto-bolsa-1_cz0haj.jpg"
+            alt="Mezcla de la Casa" />
+          <div class="product-info">
+            <span class="product-format-tag">Bolsitas</span>
+            <h3>Mezcla de la Casa</h3>
+            <p>Grano entero, bolsa de 250 g.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 80</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782769745/producto-bolsa-2_kz3bdn.jpg"
+            alt="Origen Colombia" />
+          <div class="product-info">
+            <span class="product-format-tag">Bolsitas</span>
+            <h3>Origen Colombia</h3>
+            <p>Grano molido, bolsa de 250 g.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 90</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782769760/producto-bolsa-3_y2rqzj.jpg"
+            alt="Tueste Oscuro" />
+          <div class="product-info">
+            <span class="product-format-tag">Bolsitas</span>
+            <h3>Tueste Oscuro</h3>
+            <p>Grano entero, bolsa de 500 g.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 140</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 id="tarros" class="format-heading">Tarros</h3>
+
+      <div class="product-grid" id="tarros-grid">
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782770278/prodcuto-tarro-1_fxtlmu.jpg"
+            alt="Soluble Premium" />
+          <div class="product-info">
+            <span class="product-format-tag">Tarros</span>
+            <h3>Soluble Premium</h3>
+            <p>Tarro de vidrio, 200 g.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 70</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-image"
+            src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782319280/index-tarros_op67tw.png"
+            alt="Clásico Cafital" />
+          <div class="product-info">
+            <span class="product-format-tag">Tarros</span>
+            <h3>Clásico Cafital</h3>
+            <p>Tarro de vidrio, 300 g.</p>
+            <div class="product-footer">
+              <span class="product-price">Bs. 100</span>
+              <a href="#" class="btn btn-primary btn-small">Agregar</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -104,6 +226,6 @@
       </div>
     </div>
   </footer>
-    <script src="js/productos.js"></script>
-  </body>
+</body>
+
 </html>
