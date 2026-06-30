@@ -1,0 +1,82 @@
+{% extends 'tienda/admin_base.html' %} {% block title %}Cafital - Productos
+Admin {% endblock %} {% block active_productos %}active{% endblock %} 
+
+{% block content %}
+<div class="admin-header">
+  <div>
+    <h1>PRODUCTOS</h1>
+    <p>Gestiona el catálogo de la tienda</p>
+  </div>
+  <a href="{% url 'admin:tienda_producto_add' %}" class="btn"
+    >+ Agregar nuevo producto</a
+  >
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <p>Productos activos</p>
+    <p class="value">{{ productos_count }}</p>
+  </div>
+  <div class="stat-card">
+    <p>Pedidos del mes</p>
+    <p class="value">{{ pedidos_mes }}</p>
+  </div>
+  <div class="stat-card">
+    <p>Mensajes sin leer</p>
+    <p class="value">{{ mensajes_sin_leer }}</p>
+  </div>
+</div>
+
+<div class="admin-table-card">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Formato</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for producto in productos %}
+      <tr>
+        <td>
+          {% if producto.imagen %}
+          <img
+            src="{{ producto.imagen.url }}"
+            alt="{{ producto.nombre }}"
+            class="product-thumb"
+          />
+          {% endif %}
+        </td>
+        <td class="product-name">
+          <strong>{{ producto.nombre }}</strong>
+          <span>{{ producto.descripcion }}</span>
+        </td>
+        <td>{{ producto.get_formato_display }}</td>
+        <td>Bs. {{ producto.precio }}</td>
+        <td>{{ producto.stock }}</td>
+        <td>
+          <div class="action-icons">
+            <a
+              href="{% url 'admin:tienda_producto_change' producto.id %}"
+              class="icon-btn edit"
+              title="Editar"
+              >✎</a
+            >
+            <a
+              href="{% url 'admin:tienda_producto_delete' producto.id %}"
+              class="icon-btn delete"
+              title="Eliminar"
+              >🗑</a
+            >
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

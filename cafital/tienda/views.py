@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import redirect
 from .models import CarritoItem, Pedido, DetallePedido, Contacto
+from django.contrib.auth.decorators import user_passes_test
 
 
 def index(request):
@@ -108,3 +109,52 @@ def confirmar_pedido(request):
         item.delete()
 
     return render(request, 'tienda/pedido_confirmado.html', {'pedido': pedido})
+
+def es_admin(user):
+    return user.is_superuser
+
+@login_required
+@user_passes_test(es_admin)
+def admin_productos(request):
+    productos = Producto.objects.all()
+    pedidos_mes = Pedido.objects.count()
+    mensajes_sin_leer = Contacto.objects.filter(leido=False).count()
+    return render(request, 'tienda/admin_productos.html', {
+        'productos': productos,
+        'productos_count': productos.count(),
+        'pedidos_mes': pedidos_mes,
+        'mensajes_sin_leer': mensajes_sin_leer,
+    })
+
+@login_required
+@user_passes_test(es_admin)
+def admin_pedidos(request):
+    pedidos = Pedido.objects.all().order_by('-fecha')
+    pendientes = pedidos.filter(estado='pendiente').count()
+    completados = pedidos.filter(estado='completado').count()
+    total_ingresos = sum(p.total for p in pedidos)
+    return render(request, 'tienda/admin_pedidos.html', {
+        'pedidos': pedidos,
+        'pendientes': pendientes,
+        'completados': completados,
+        'total_ingresos': total_ingresos,
+    })
+
+@login_required
+@user_passes_test(es_admin)
+def admin_mensajes(request):
+    mensajes = Contacto.objects.all().order_by('-fecha')
+    sin_leer = mensajes.filter(leido=False).count()
+    return render(request, 'tienda/admin_mensajes.html', {
+        'mensajes': mensajes,
+        'total': mensajes.count(),
+        'sin_leer': sin_leer,
+    })
+
+@login_required
+@user_passes_test(es_admin)
+def marcar_leido(request, mensaje_id):
+    mensaje = Contacto.objects.get(id=mensaje_id)
+    mensaje.leido = True
+    mensaje.save()
+    return redirect('admin_mensajes')

@@ -1,0 +1,69 @@
+{% extends 'tienda/admin_base.html' %}
+{% block title %}Cafital - Mensajes Admin{% endblock %}
+{% block active_mensajes %}active{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+  <div>
+    <h1>MENSAJES</h1>
+    <p>Bandeja de entrada del formulario de contacto</p>
+  </div>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <p>Mensajes totales</p>
+    <p class="value">{{ total }}</p>
+  </div>
+  <div class="stat-card">
+    <p>Mensajes sin leer</p>
+    <p class="value">{{ sin_leer }}</p>
+  </div>
+</div>
+
+<div class="admin-table-card">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Mensaje</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mensaje in mensajes %}
+      <tr>
+        <td>{{ mensaje.fecha|date:"d/m/Y" }}</td>
+        <td class="product-name">
+          <strong>{{ mensaje.nombre }}</strong>
+        </td>
+        <td>{{ mensaje.email }}</td>
+        <td>
+          <div class="message-text" title="{{ mensaje.mensaje }}">
+            {{ mensaje.mensaje }}
+          </div>
+        </td>
+        <td>
+          {% if mensaje.leido %}
+            <span class="badge badge-leido">Leído</span>
+          {% else %}
+            <span class="badge badge-sin-leer">Sin leer</span>
+          {% endif %}
+        </td>
+        <td>
+          <div class="action-icons">
+            <a href="mailto:{{ mensaje.email }}" class="icon-btn reply" title="Responder por correo">✉</a>
+            {% if not mensaje.leido %}
+              <a href="{% url 'marcar_leido' mensaje.id %}" class="icon-btn edit" title="Marcar como leído">✓</a>
+            {% endif %}
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
