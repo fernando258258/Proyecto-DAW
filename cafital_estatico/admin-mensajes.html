@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafital - Mensajes Admin</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <div class="admin-logo-container">
+        <img src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782320439/logo-2_yn65ie.png" alt="Cafital Logo"
+          class="admin-logo" />
+        <h2>Cafital</h2>
+      </div>
+      <p>Panel admin</p>
+    </div>
+
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="admin.html">Productos</a></li>
+        <li><a href="admin-pedidos.html">Pedidos</a></li>
+        <li><a href="admin-mensajes.html" class="active">Mensajes</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <div>
+        <h1>MENSAJES</h1>
+        <p>Bandeja de entrada del formulario de contacto</p>
+      </div>
+
+      <a href="#" class="btn">
+        Limpiar Leídos
+      </a>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p>Mensajes totales</p>
+        <p class="value">45</p>
+      </div>
+
+      <div class="stat-card">
+        <p>Mensajes sin leer</p>
+        <p class="value">7</p>
+      </div>
+
+      <div class="stat-card">
+        <p>Tiempo resp. promedio</p>
+        <p class="value">2.4 hrs</p>
+      </div>
+    </div>
+
+    <div class="admin-table-card">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Mensaje</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Mensaje 1 -->
+          <tr>
+            <td>29/06/2026</td>
+            <td class="product-name">
+              <strong>Mariana Ríos</strong>
+              <span>Consulta de envíos</span>
+            </td>
+            <td>mariana.rios@gmail.com</td>
+            <td>
+              <div class="message-text"
+                title="Hola, hacen envíos a Cochabamba? Quisiera comprar 3 bolsas de Mezcla de la Casa.">
+                Hola, hacen envíos a Cochabamba? Quisiera comprar 3 bolsas de Mezcla de la Casa.
+              </div>
+            </td>
+            <td><span class="badge badge-sin-leer">Sin leer</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="mailto:mariana.rios@gmail.com" class="icon-btn reply" title="Responder por correo">
+                  <i class="fi fi-ts-envelopes"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Mensaje 2 -->
+          <tr>
+            <td>28/06/2026</td>
+            <td class="product-name">
+              <strong>Alejandro Ortiz</strong>
+              <span>Felicitaciones</span>
+            </td>
+            <td>aleto@hotmail.com</td>
+            <td>
+              <div class="message-text"
+                title="Excelente café! Compré el Espresso Intenso y el sabor es espectacular. Volveré a comprar.">
+                Excelente café! Compré el Espresso Intenso y el sabor es espectacular. Volveré a comprar.
+              </div>
+            </td>
+            <td><span class="badge badge-leido">Leído</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="mailto:aleto@hotmail.com" class="icon-btn reply" title="Responder por correo">
+                  <i class="fi fi-ts-envelopes"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Mensaje 3 -->
+          <tr>
+            <td>27/06/2026</td>
+            <td class="product-name">
+              <strong>Distribuidora Del Sur</strong>
+              <span>Alianza Comercial</span>
+            </td>
+            <td>ventas@delsur.bo</td>
+            <td>
+              <div class="message-text"
+                title="Estimados, nos interesa distribuir sus productos en la zona sur. ¿Con quién podríamos coordinar?">
+                Estimados, nos interesa distribuir sus productos en la zona sur. ¿Con quién podríamos coordinar?
+              </div>
+            </td>
+            <td><span class="badge badge-leido">Leído</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="mailto:ventas@delsur.bo" class="icon-btn reply" title="Responder por correo">
+                  <i class="fi fi-ts-envelopes"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Mensaje 4 -->
+          <tr>
+            <td>25/06/2026</td>
+            <td class="product-name">
+              <strong>Valeria Justiniano</strong>
+              <span>Problema con pedido</span>
+            </td>
+            <td>valejus@gmail.com</td>
+            <td>
+              <div class="message-text"
+                title="Buenas tardes, mi pedido #1018 llegó con un tarro roto. Adjunto fotos de cómo venía el paquete.">
+                Buenas tardes, mi pedido #1018 llegó con un tarro roto. Adjunto fotos de cómo venía el paquete.
+              </div>
+            </td>
+            <td><span class="badge badge-respondido">Respondido</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="mailto:valejus@gmail.com" class="icon-btn reply" title="Responder por correo">
+                  <i class="fi fi-ts-envelopes"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+
+</html>
