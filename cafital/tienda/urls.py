@@ -22,4 +22,6 @@ urlpatterns = [
     path('panel/productos/eliminar/<int:producto_id>/', views.admin_producto_eliminar, name='admin_producto_eliminar'),
     path('panel/pedidos/editar/<int:pedido_id>/', views.admin_pedido_editar, name='admin_pedido_editar'),
     path('panel/mensajes/eliminar/<int:mensaje_id>/', views.admin_mensaje_eliminar, name='admin_mensaje_eliminar'),
+    path('carrito/aumentar/<int:item_id>/', views.aumentar_cantidad, name='aumentar_cantidad'),
+    path('carrito/disminuir/<int:item_id>/', views.disminuir_cantidad, name='disminuir_cantidad'),
 ]

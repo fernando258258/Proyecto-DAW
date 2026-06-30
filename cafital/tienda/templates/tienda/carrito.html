@@ -1,17 +1,43 @@
-<h2>Tu carrito</h2>
+{% extends 'tienda/base.html' %}
+{% block title %}Cafital - Tu carrito{% endblock %}
 
-{% if items %}
-<ul>
-  {% for item in items %}
-  <li>
-    {{ item.producto.nombre }} - {{ item.cantidad }} x ${{ item.producto.precio
-    }}
-    <a href="{% url 'eliminar_carrito' item.id %}">Eliminar</a>
-  </li>
-  {% endfor %}
-</ul>
-<p>Total: ${{ total }}</p>
-<a href="{% url 'confirmar_pedido' %}">Confirmar pedido</a>
-{% else %}
-<p>Tu carrito está vacío.</p>
-{% endif %}
+{% block content %}
+<section class="section" style="padding: 50px 0 100px;">
+  <div class="container" style="max-width: 700px;">
+    <span class="section-tag" style="text-align:center; display:block;">CARRITO</span>
+    <h1 class="section-title" style="text-align:center;">Tu <span class="accent">carrito</span></h1>
+
+    {% if items_con_subtotal %}
+      <div class="contact-form-card" style="box-shadow: 0 12px 30px rgba(61,43,31,0.12);">
+        {% for entry in items_con_subtotal %}
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid #ead9c2;">
+          <div>
+            <strong style="font-size:1.1rem; color:var(--color-cafe);">{{ entry.item.producto.nombre }}</strong>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:8px;">
+              <a href="{% url 'disminuir_cantidad' entry.item.id %}" style="background:#ead9c2; color:var(--color-cafe); width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; font-weight:700;">−</a>
+              <span style="color:#6f5a47; min-width:20px; text-align:center;">{{ entry.item.cantidad }}</span>
+              <a href="{% url 'aumentar_cantidad' entry.item.id %}" style="background:#ead9c2; color:var(--color-cafe); width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; font-weight:700;">+</a>
+              <span style="color:#6f5a47; margin-left:6px;">x Bs. {{ entry.item.producto.precio }}</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:20px;">
+            <strong style="color:var(--color-cafe);">Bs. {{ entry.subtotal }}</strong>
+            <a href="{% url 'eliminar_carrito' entry.item.id %}" style="color:#d32f2f; text-decoration:none; font-weight:600;">Eliminar</a>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:24px;">
+          <h3 style="margin:0; color:var(--color-cafe);">Total: Bs. {{ total }}</h3>
+          <a href="{% url 'confirmar_pedido' %}" class="btn btn-primary">Confirmar pedido</a>
+        </div>
+      </div>
+    {% else %}
+      <div class="contact-form-card" style="text-align:center; box-shadow: 0 12px 30px rgba(61,43,31,0.12);">
+        <p style="margin-bottom:16px; color:var(--color-cafe);">Tu carrito está vacío.</p>
+        <a href="{% url 'productos' %}" class="btn btn-primary">Ver productos</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

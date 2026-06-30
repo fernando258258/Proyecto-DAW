@@ -80,13 +80,36 @@ def agregar_carrito(request, producto_id):
 @login_required
 def carrito(request):
     items = CarritoItem.objects.filter(usuario=request.user)
-    total = sum(item.producto.precio * item.cantidad for item in items)
-    return render(request, 'tienda/carrito.html', {'items': items, 'total': total})
+    items_con_subtotal = []
+    for item in items:
+        items_con_subtotal.append({
+            'item': item,
+            'subtotal': item.producto.precio * item.cantidad
+        })
+    total = sum(i['subtotal'] for i in items_con_subtotal)
+    return render(request, 'tienda/carrito.html', {'items_con_subtotal': items_con_subtotal, 'total': total})
 
 @login_required
 def eliminar_carrito(request, item_id):
     item = CarritoItem.objects.get(id=item_id, usuario=request.user)
     item.delete()
+    return redirect('carrito')
+
+@login_required
+def aumentar_cantidad(request, item_id):
+    item = CarritoItem.objects.get(id=item_id, usuario=request.user)
+    item.cantidad += 1
+    item.save()
+    return redirect('carrito')
+
+@login_required
+def disminuir_cantidad(request, item_id):
+    item = CarritoItem.objects.get(id=item_id, usuario=request.user)
+    if item.cantidad > 1:
+        item.cantidad -= 1
+        item.save()
+    else:
+        item.delete()
     return redirect('carrito')
 
 @login_required
