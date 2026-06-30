@@ -23,6 +23,12 @@
             <li><a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a></li>
             <li><a href="{% url 'productos' %}">Productos</a></li>
             <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'carrito' %}">Carrito</a></li>
+              <li><a href="{% url 'logout' %}" style="color:#d32f2f;">Cerrar sesión</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>

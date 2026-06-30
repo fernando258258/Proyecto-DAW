@@ -23,29 +23,17 @@
 
       <nav class="admin-nav">
         <ul>
-          <li>
-            <a
-              href="{% url 'admin_productos' %}"
-              class="{% block active_productos %}{% endblock %}"
-              >Productos</a
-            >
-          </li>
-          <li>
-            <a
-              href="{% url 'admin_pedidos' %}"
-              class="{% block active_pedidos %}{% endblock %}"
-              >Pedidos</a
-            >
-          </li>
-          <li>
-            <a
-              href="{% url 'admin_mensajes' %}"
-              class="{% block active_mensajes %}{% endblock %}"
-              >Mensajes</a
-            >
-          </li>
+          <li><a href="{% url 'admin_productos' %}" class="{% block active_productos %}{% endblock %}">Productos</a></li>
+          <li><a href="{% url 'admin_pedidos' %}" class="{% block active_pedidos %}{% endblock %}">Pedidos</a></li>
+          <li><a href="{% url 'admin_mensajes' %}" class="{% block active_mensajes %}{% endblock %}">Mensajes</a></li>
         </ul>
       </nav>
+
+      <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(242,232,220,0.15);">
+        <a href="{% url 'logout' %}" style="color:#e94f4f; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; padding:12px 16px;">
+          Cerrar sesión
+        </a>
+      </div>
     </aside>
 
     <main class="admin-main">
