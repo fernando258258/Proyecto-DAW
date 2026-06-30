@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafital - Pedidos Admin</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <div class="admin-logo-container">
+        <img src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782320439/logo-2_yn65ie.png" alt="Cafital Logo"
+          class="admin-logo" />
+        <h2>Cafital</h2>
+      </div>
+      <p>Panel admin</p>
+    </div>
+
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="admin.html">Productos</a></li>
+        <li><a href="admin-pedidos.html" class="active">Pedidos</a></li>
+        <li><a href="admin-mensajes.html">Mensajes</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <div>
+        <h1>PEDIDOS</h1>
+        <p>Gestiona las compras de los clientes</p>
+      </div>
+
+      <a href="#" class="btn">
+        Exportar Pedidos
+      </a>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p>Pedidos pendientes</p>
+        <p class="value">14</p>
+      </div>
+
+      <div class="stat-card">
+        <p>Pedidos completados</p>
+        <p class="value">128</p>
+      </div>
+
+      <div class="stat-card">
+        <p>Total Ingresos</p>
+        <p class="value">Bs. 12.450</p>
+      </div>
+    </div>
+
+    <div class="admin-table-card">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID Pedido</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Productos</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Pedido 1 -->
+          <tr>
+            <td><strong>#1024</strong></td>
+            <td class="product-name">
+              <strong>Carlos Mendoza</strong>
+              <span>carlos.men@gmail.com</span>
+            </td>
+            <td>29/06/2026</td>
+            <td>2x Espresso Intenso, 1x Origen Colombia</td>
+            <td>Bs. 210</td>
+            <td><span class="badge badge-pendiente">Pendiente</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="#" class="icon-btn edit" title="Ver / Editar">
+                  <i class="fi fi-rr-pencil"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Pedido 2 -->
+          <tr>
+            <td><strong>#1023</strong></td>
+            <td class="product-name">
+              <strong>Ana Sofía Vaca</strong>
+              <span>anita.vaca@hotmail.com</span>
+            </td>
+            <td>28/06/2026</td>
+            <td>1x Mezcla de la Casa, 1x Clásico Cafital</td>
+            <td>Bs. 180</td>
+            <td><span class="badge badge-enviado">Enviado</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="#" class="icon-btn edit" title="Ver / Editar">
+                  <i class="fi fi-rr-pencil"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Pedido 3 -->
+          <tr>
+            <td><strong>#1022</strong></td>
+            <td class="product-name">
+              <strong>Mateo Roca</strong>
+              <span>mateoroca@gmail.com</span>
+            </td>
+            <td>27/06/2026</td>
+            <td>3x Lungo Dorado</td>
+            <td>Bs. 210</td>
+            <td><span class="badge badge-entregado">Entregado</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="#" class="icon-btn edit" title="Ver / Editar">
+                  <i class="fi fi-rr-pencil"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Pedido 4 -->
+          <tr>
+            <td><strong>#1021</strong></td>
+            <td class="product-name">
+              <strong>Lucía Pinto</strong>
+              <span>lu.pinto@gmail.com</span>
+            </td>
+            <td>26/06/2026</td>
+            <td>1x Tueste Oscuro</td>
+            <td>Bs. 140</td>
+            <td><span class="badge badge-entregado">Entregado</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="#" class="icon-btn edit" title="Ver / Editar">
+                  <i class="fi fi-rr-pencil"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Pedido 5 -->
+          <tr>
+            <td><strong>#1020</strong></td>
+            <td class="product-name">
+              <strong>Jorge Suárez</strong>
+              <span>jorgito.suarez@gmail.com</span>
+            </td>
+            <td>25/06/2026</td>
+            <td>2x Soluble Premium</td>
+            <td>Bs. 140</td>
+            <td><span class="badge badge-cancelado">Cancelado</span></td>
+            <td>
+              <div class="action-icons">
+                <a href="#" class="icon-btn edit" title="Ver / Editar">
+                  <i class="fi fi-rr-pencil"></i>
+                </a>
+                <a href="#" class="icon-btn delete" title="Eliminar">
+                  <i class="fi fi-rr-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+
+</html>
