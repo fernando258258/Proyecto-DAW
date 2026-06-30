@@ -1,12 +1,113 @@
-<h2>Productos</h2>
+{% extends 'tienda/base.html' %} {% block title %}Cafital -
+Productos{%endblock%} {% block content %}
+<section class="section">
+  <div class="container">
+    <span class="section-tag">CATALOGO</span>
+    <h2 class="section-title">
+      Nuestros <span class="accent">productos</span>
+    </h2>
 
-{% for producto in productos %}
-<div>
-  <p>
-    {{ producto.nombre }} - ${{ producto.precio }} - Stock: {{ producto.stock }}
-  </p>
-  <a href="{% url 'agregar_carrito' producto.id %}">Agregar al carrito</a>
-</div>
-{% endfor %}
+    <div class="filters">
+      <a href="#capsulas" class="filter-btn">Cápsulas</a>
+      <a href="#bolsitas" class="filter-btn">Bolsitas</a>
+      <a href="#tarros" class="filter-btn">Tarros</a>
+    </div>
 
-<a href="{% url 'carrito' %}">Ver carrito</a>
+    <h3 id="capsulas" class="format-heading">Cápsulas</h3>
+    <div class="product-grid" id="capsulas-grid">
+      {% for producto in productos %} {% if producto.formato == 'capsulas' %}
+      <article class="product-card">
+        <img
+          class="product-image"
+          src="{{ producto.imagen.url }}"
+          alt="{{ producto.nombre }}"
+        />
+        <div class="product-info">
+          <span class="product-format-tag">Cápsulas</span>
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.descripcion }}</p>
+          <div class="product-footer">
+            <span class="product-price">Bs. {{ producto.precio }}</span>
+            {% if user.is_authenticated %}
+            <a
+              href="{% url 'agregar_carrito' producto.id %}"
+              class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endif %} {% endfor %}
+    </div>
+
+    <h3 id="bolsitas" class="format-heading">Bolsitas</h3>
+    <div class="product-grid" id="bolsitas-grid">
+      {% for producto in productos %} {% if producto.formato == 'bolsitas' %}
+      <article class="product-card">
+        <img
+          class="product-image"
+          src="{{ producto.imagen.url }}"
+          alt="{{ producto.nombre }}"
+        />
+        <div class="product-info">
+          <span class="product-format-tag">Bolsitas</span>
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.descripcion }}</p>
+          <div class="product-footer">
+            <span class="product-price">Bs. {{ producto.precio }}</span>
+            {% if user.is_authenticated %}
+            <a
+              href="{% url 'agregar_carrito' producto.id %}"
+              class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endif %} {% endfor %}
+    </div>
+
+    <h3 id="tarros" class="format-heading">Tarros</h3>
+    <div class="product-grid" id="tarros-grid">
+      {% for producto in productos %} {% if producto.formato == 'tarros' %}
+      <article class="product-card">
+        <img
+          class="product-image"
+          src="{{ producto.imagen.url }}"
+          alt="{{ producto.nombre }}"
+        />
+        <div class="product-info">
+          <span class="product-format-tag">Tarros</span>
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.descripcion }}</p>
+          <div class="product-footer">
+            <span class="product-price">Bs. {{ producto.precio }}</span>
+            {% if user.is_authenticated %}
+            <a
+              href="{% url 'agregar_carrito' producto.id %}"
+              class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary btn-small"
+              >Agregar</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

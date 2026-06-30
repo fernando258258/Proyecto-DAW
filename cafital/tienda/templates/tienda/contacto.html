@@ -1,16 +1,91 @@
-<h2>Contacto</h2>
+{% extends 'tienda/base.html' %} {% block title %} Cafital - Contacto
+{%endblock%} {% block content %}
+<section class="section">
+  <div class="container">
+    <span class="section-tag">CONTACTO</span>
+    <h1 class="section-title">Hablemos de <span class="accent">café</span></h1>
 
-{% if enviado %}
-<p style="color: green">¡Mensaje enviado correctamente!</p>
-{% endif %}
+    {% if enviado %}
+    <p style="color: green; font-weight: bold">
+      ¡Mensaje enviado correctamente!
+    </p>
+    {% endif %}
 
-<form method="POST">
-  {% csrf_token %}
-  <label>Nombre:</label>
-  <input type="text" name="nombre" required />
-  <label>Email:</label>
-  <input type="email" name="email" required />
-  <label>Mensaje:</label>
-  <textarea name="mensaje" required></textarea>
-  <button type="submit">Enviar mensaje</button>
-</form>
+    <div class="contact-layout">
+      <div class="contact-form-card">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre completo"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tu@correo.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Cuéntanos en qué podemos ayudarte"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+
+      <div class="contact-sidebar">
+        <div class="contact-info-card">
+          <h3>Información</h3>
+          <div class="contact-info-item">
+            <span>📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p>Calle Florida 259</p>
+              <p>Santa Cruz, Bolivia</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span>📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <p>+591 780 49 217</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span>✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p>cafitalBo@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social-card">
+          <h4>Síguenos</h4>
+          <div class="footer-social contact-social" aria-label="Redes sociales">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="X">X</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,1 +1,98 @@
-<h1>Funciona! Esta es la página de inicio</h1>
+{% extends 'tienda/base.html' %} {% block title %}Cafital - Inicio{% endblock %}
+{% block content %}
+<main>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="section-tag">TOSTADO ARTESANAL</span>
+        <h1>Descubre el mejor café, en el formato que prefieras</h1>
+        <p>
+          Cápsulas, bolsitas de grano y tarros seleccionados para acompañar cada
+          momento de tu día.
+        </p>
+        <a href="#section-formatos" class="btn btn-primary">Ver productos</a>
+      </div>
+      <div class="hero-image">
+        <img
+          class="hero-image-placeholder"
+          src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782308175/index-principal_ggvash.jpg"
+          alt="Café Cafital tostado artesanal"
+        />
+      </div>
+    </section>
+  </div>
+
+  <section class="section section-intro-band">
+    <div class="container">
+      <div class="section-intro">
+        <div class="intro-item">
+          <h3>Origen seleccionado</h3>
+          <p>Lotes de fincas con trazabilidad.</p>
+        </div>
+        <div class="intro-item">
+          <h3>Tueste fresco</h3>
+          <p>Tostamos cada semana en lotes pequeños.</p>
+        </div>
+        <div class="intro-item">
+          <h3>Envío a todo el país</h3>
+          <p>Despacho en 24-48 h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="section" id="section-formatos">
+      <span class="section-tag">ELIGE TU FORMATO</span>
+      <h2 class="section-title">Café para cada ritual</h2>
+
+      <div class="category-grid">
+        <article class="category-card">
+          <div class="card-image">
+            <img
+              src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782308386/index-capsulas_biqowj.jpg"
+              alt="Cápsulas de café"
+            />
+            <span class="card-image-label">foto · cápsulas</span>
+          </div>
+          <div class="card-content">
+            <h3>Cápsulas</h3>
+            <p>Compatibles, listas en segundos. Intensidades del 5 al 12.</p>
+            <a href="{% url 'productos' %}" class="card-link">Explorar →</a>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <div class="card-image">
+            <img
+              src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782318168/index-bolsas_rhn8wo.jpg"
+              alt="Bolsas de grano y molido"
+            />
+            <span class="card-image-label">foto · grano / molido</span>
+          </div>
+          <div class="card-content">
+            <h3>Bolsitas</h3>
+            <p>Grano entero o molido, en bolsas de 250 g recién tostadas.</p>
+            <a href="{% url 'productos' %}" class="card-link">Explorar →</a>
+          </div>
+        </article>
+
+        <article class="category-card">
+          <div class="card-image">
+            <img
+              src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782319280/index-tarros_op67tw.png"
+              alt="Tarros de café"
+            />
+            <span class="card-image-label">foto · tarro</span>
+          </div>
+          <div class="card-content">
+            <h3>Tarros</h3>
+            <p>Café soluble premium para tener siempre a mano.</p>
+            <a href="{% url 'productos' %}" class="card-link">Explorar →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}

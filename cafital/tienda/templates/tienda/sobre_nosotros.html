@@ -1,1 +1,63 @@
-<h1>Sobre Nosotros</h1>
+{% extends 'tienda/base.html' %} {% block title %}Cafital - Sobre
+Nosotros{%endblock %} {% block content %}
+<div class="container">
+  <section class="about-hero">
+    <img
+      class="about-image"
+      src="https://res.cloudinary.com/dk0my05zq/image/upload/v1782589556/sobre-nosotros_peq1nw.jpg"
+      alt="De la finca a tu taza"
+    />
+    <div class="about-text">
+      <span class="section-tag">Nuestra historia</span>
+      <h1 class="about-title">De la finca a tu taza</h1>
+      <p>
+        Cafital nació de la idea de acercar café de calidad a quienes buscan
+        algo más que una bebida: un ritual. Trabajamos junto a productores que
+        cuidan cada etapa del cultivo y el tueste.
+      </p>
+      <br />
+      <p>
+        Hoy ofrecemos café en distintos formatos — cápsulas, bolsitas de grano y
+        tarros — para que cada persona elija la forma que mejor se adapta a su
+        día.
+      </p>
+    </div>
+  </section>
+</div>
+
+<section class="about-values">
+  <div class="container">
+    <span class="section-tag">Lo que nos mueve</span>
+    <h2 class="section-title">
+      <span class="accent2">Nuestros</span> <span class="accent2">valores</span>
+    </h2>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Origen</h3>
+        <p>
+          Trabajamos directamente con productores que conocemos, priorizando
+          trazabilidad y calidad en cada lote.
+        </p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">♻️</div>
+        <h3>Sostenibilidad</h3>
+        <p>
+          Empaques responsables y procesos pensados para reducir el impacto
+          ambiental en toda la cadena.
+        </p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⭐</div>
+        <h3>Calidad</h3>
+        <p>
+          Cada formato pasa por control de tueste y catación antes de llegar a
+          tu mesa.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
