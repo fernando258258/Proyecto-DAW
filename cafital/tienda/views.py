@@ -52,6 +52,8 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            if user.is_superuser:
+                return redirect('admin_productos')
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos.')

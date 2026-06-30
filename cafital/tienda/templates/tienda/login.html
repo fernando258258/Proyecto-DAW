@@ -1,16 +1,34 @@
-<h2>Iniciar sesión</h2>
+{% extends 'tienda/base.html' %}
+{% block title %}Cafital - Iniciar sesión{% endblock %}
 
-{% if messages %} {% for message in messages %}
-<p style="color: red">{{ message }}</p>
-{% endfor %} {% endif %}
+{% block content %}
+<section class="section" style="padding: 60px 0 100px;">
+  <div class="container" style="max-width: 480px;">
+    <span class="section-tag" style="text-align:center; display:block;">ACCEDER</span>
+    <h1 class="section-title" style="text-align:center;">Iniciar <span class="accent">sesión</span></h1>
 
-<form method="POST">
-  {% csrf_token %}
-  <label>Usuario:</label>
-  <input type="text" name="username" required />
-  <label>Contraseña:</label>
-  <input type="password" name="password" required />
-  <button type="submit">Entrar</button>
-</form>
+    <div class="contact-form-card" style="box-shadow: 0 12px 30px rgba(61,43,31,0.12); border: 1px solid #ead9c2;">
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color:#d32f2f; font-weight:bold; margin-bottom:15px;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
 
-<p>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a></p>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Entrar</button>
+      </form>
+
+      <p style="margin-top:24px; text-align:center;">¿No tienes cuenta? <a href="{% url 'registro' %}" class="card-link">Regístrate</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}
