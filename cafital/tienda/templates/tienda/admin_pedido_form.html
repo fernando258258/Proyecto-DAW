@@ -1,0 +1,56 @@
+{% extends 'tienda/admin_base.html' %}
+{% block title %}Cafital - Editar Pedido{% endblock %}
+{% block active_pedidos %}active{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+  <div>
+    <h1>EDITAR PEDIDO #{{ pedido.id }}</h1>
+    <p>Cliente: {{ pedido.usuario.username }} ({{ pedido.usuario.email }})</p>
+  </div>
+</div>
+
+<div class="admin-table-card">
+  <div style="margin-bottom: 20px;">
+    <p><strong>Fecha:</strong> {{ pedido.fecha|date:"d/m/Y H:i" }}</p>
+    <p><strong>Total:</strong> Bs. {{ pedido.total }}</p>
+  </div>
+
+  <h3 style="margin-bottom:12px;">Detalle de productos</h3>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for detalle in pedido.detallepedido_set.all %}
+      <tr>
+        <td>{{ detalle.producto.nombre }}</td>
+        <td>{{ detalle.cantidad }}</td>
+        <td>Bs. {{ detalle.precio_unitario }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <form method="POST" style="max-width: 400px; margin-top: 30px;">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="estado">Estado del pedido</label>
+      <select id="estado" name="estado" required
+        style="width:100%; padding:10px; border-radius:10px; border:1px solid var(--color-borde); font-family:var(--font-secondary);">
+        <option value="pendiente" {% if pedido.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
+        <option value="completado" {% if pedido.estado == 'completado' %}selected{% endif %}>Completado</option>
+        <option value="cancelado" {% if pedido.estado == 'cancelado' %}selected{% endif %}>Cancelado</option>
+      </select>
+    </div>
+    <div style="display:flex; gap:12px; margin-top:24px;">
+      <button type="submit" class="btn">Guardar cambios</button>
+      <a href="{% url 'admin_pedidos' %}" class="btn" style="background:#999; border-color:#999;">Volver</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

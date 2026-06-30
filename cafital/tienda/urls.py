@@ -17,4 +17,9 @@ urlpatterns = [
     path('panel/pedidos/', views.admin_pedidos, name='admin_pedidos'),
     path('panel/mensajes/', views.admin_mensajes, name='admin_mensajes'),
     path('panel/mensajes/leido/<int:mensaje_id>/', views.marcar_leido, name='marcar_leido'),
+    path('panel/productos/agregar/', views.admin_producto_agregar, name='admin_producto_agregar'),
+    path('panel/productos/editar/<int:producto_id>/', views.admin_producto_editar, name='admin_producto_editar'),
+    path('panel/productos/eliminar/<int:producto_id>/', views.admin_producto_eliminar, name='admin_producto_eliminar'),
+    path('panel/pedidos/editar/<int:pedido_id>/', views.admin_pedido_editar, name='admin_pedido_editar'),
+    path('panel/mensajes/eliminar/<int:mensaje_id>/', views.admin_mensaje_eliminar, name='admin_mensaje_eliminar'),
 ]

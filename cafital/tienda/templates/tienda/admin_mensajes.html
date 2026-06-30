@@ -57,8 +57,9 @@
           <div class="action-icons">
             <a href="mailto:{{ mensaje.email }}" class="icon-btn reply" title="Responder por correo">✉</a>
             {% if not mensaje.leido %}
-              <a href="{% url 'marcar_leido' mensaje.id %}" class="icon-btn edit" title="Marcar como leído">✓</a>
+                <a href="{% url 'marcar_leido' mensaje.id %}" class="icon-btn edit" title="Marcar como leído">✓</a>
             {% endif %}
+            <a href="{% url 'admin_mensaje_eliminar' mensaje.id %}" class="icon-btn delete" title="Eliminar">🗑</a>
           </div>
         </td>
       </tr>

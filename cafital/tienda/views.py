@@ -158,3 +158,70 @@ def marcar_leido(request, mensaje_id):
     mensaje.leido = True
     mensaje.save()
     return redirect('admin_mensajes')
+
+@login_required
+@user_passes_test(es_admin)
+def admin_producto_agregar(request):
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        formato = request.POST['formato']
+        descripcion = request.POST['descripcion']
+        precio = request.POST['precio']
+        stock = request.POST['stock']
+        imagen = request.FILES.get('imagen')
+
+        Producto.objects.create(
+            nombre=nombre,
+            formato=formato,
+            descripcion=descripcion,
+            precio=precio,
+            stock=stock,
+            imagen=imagen
+        )
+        return redirect('admin_productos')
+
+    return render(request, 'tienda/admin_producto_form.html', {'accion': 'Agregar'})
+
+@login_required
+@user_passes_test(es_admin)
+def admin_producto_editar(request, producto_id):
+    producto = Producto.objects.get(id=producto_id)
+
+    if request.method == 'POST':
+        producto.nombre = request.POST['nombre']
+        producto.formato = request.POST['formato']
+        producto.descripcion = request.POST['descripcion']
+        producto.precio = request.POST['precio']
+        producto.stock = request.POST['stock']
+        if request.FILES.get('imagen'):
+            producto.imagen = request.FILES['imagen']
+        producto.save()
+        return redirect('admin_productos')
+
+    return render(request, 'tienda/admin_producto_form.html', {'producto': producto, 'accion': 'Editar'})
+
+@login_required
+@user_passes_test(es_admin)
+def admin_producto_eliminar(request, producto_id):
+    producto = Producto.objects.get(id=producto_id)
+    producto.delete()
+    return redirect('admin_productos')
+
+@login_required
+@user_passes_test(es_admin)
+def admin_pedido_editar(request, pedido_id):
+    pedido = Pedido.objects.get(id=pedido_id)
+
+    if request.method == 'POST':
+        pedido.estado = request.POST['estado']
+        pedido.save()
+        return redirect('admin_pedidos')
+
+    return render(request, 'tienda/admin_pedido_form.html', {'pedido': pedido})
+
+@login_required
+@user_passes_test(es_admin)
+def admin_mensaje_eliminar(request, mensaje_id):
+    mensaje = Contacto.objects.get(id=mensaje_id)
+    mensaje.delete()
+    return redirect('admin_mensajes')

@@ -7,9 +7,7 @@ Admin {% endblock %} {% block active_productos %}active{% endblock %}
     <h1>PRODUCTOS</h1>
     <p>Gestiona el catálogo de la tienda</p>
   </div>
-  <a href="{% url 'admin:tienda_producto_add' %}" class="btn"
-    >+ Agregar nuevo producto</a
-  >
+  <a href="{% url 'admin_producto_agregar' %}" class="btn">+ Agregar nuevo producto</a>
 </div>
 
 <div class="stats-grid">
@@ -60,17 +58,8 @@ Admin {% endblock %} {% block active_productos %}active{% endblock %}
         <td>{{ producto.stock }}</td>
         <td>
           <div class="action-icons">
-            <a
-              href="{% url 'admin:tienda_producto_change' producto.id %}"
-              class="icon-btn edit"
-              title="Editar"
-              >✎</a
-            >
-            <a
-              href="{% url 'admin:tienda_producto_delete' producto.id %}"
-              class="icon-btn delete"
-              title="Eliminar"
-              >🗑</a
+            <a href="{% url 'admin_producto_editar' producto.id %}" class="icon-btn edit" title="Editar">✎</a>
+            <a href="{% url 'admin_producto_eliminar' producto.id %}" class="icon-btn delete" title="Eliminar">🗑</a> 
             >
           </div>
         </td>
