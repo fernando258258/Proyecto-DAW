@@ -1,0 +1,17 @@
+<h2>Tu carrito</h2>
+
+{% if items %}
+<ul>
+  {% for item in items %}
+  <li>
+    {{ item.producto.nombre }} - {{ item.cantidad }} x ${{ item.producto.precio
+    }}
+    <a href="{% url 'eliminar_carrito' item.id %}">Eliminar</a>
+  </li>
+  {% endfor %}
+</ul>
+<p>Total: ${{ total }}</p>
+<a href="{% url 'confirmar_pedido' %}">Confirmar pedido</a>
+{% else %}
+<p>Tu carrito está vacío.</p>
+{% endif %}

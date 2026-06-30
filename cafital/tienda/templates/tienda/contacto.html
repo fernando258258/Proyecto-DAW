@@ -1,1 +1,16 @@
-<h1>Contacto</h1>
+<h2>Contacto</h2>
+
+{% if enviado %}
+<p style="color: green">¡Mensaje enviado correctamente!</p>
+{% endif %}
+
+<form method="POST">
+  {% csrf_token %}
+  <label>Nombre:</label>
+  <input type="text" name="nombre" required />
+  <label>Email:</label>
+  <input type="email" name="email" required />
+  <label>Mensaje:</label>
+  <textarea name="mensaje" required></textarea>
+  <button type="submit">Enviar mensaje</button>
+</form>

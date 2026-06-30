@@ -1,1 +1,12 @@
-<h1>Productos</h1>
+<h2>Productos</h2>
+
+{% for producto in productos %}
+<div>
+  <p>
+    {{ producto.nombre }} - ${{ producto.precio }} - Stock: {{ producto.stock }}
+  </p>
+  <a href="{% url 'agregar_carrito' producto.id %}">Agregar al carrito</a>
+</div>
+{% endfor %}
+
+<a href="{% url 'carrito' %}">Ver carrito</a>
